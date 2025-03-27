@@ -1,0 +1,29 @@
+# (i) Create a 5 × 4 matrix filled by rows
+matrix_5x4 <- matrix(1:20, nrow=5, ncol=4, byrow=TRUE)
+cat("5 × 4 Matrix (Filled by Rows):\n")
+print(matrix_5x4)
+
+# (ii) Create a 3 × 3 matrix with custom row and column labels, filled by rows
+matrix_3x3 <- matrix(1:9, nrow=3, ncol=3, byrow=TRUE)
+
+# Assign custom row and column names
+rownames(matrix_3x3) <- c("Row1", "Row2", "Row3")
+colnames(matrix_3x3) <- c("Col1", "Col2", "Col3")
+
+cat("\n3 × 3 Matrix with Custom Labels:\n")
+print(matrix_3x3)
+
+
+START
+
+    CREATE a 5 × 4 matrix
+    - Use `matrix()` function
+    - Fill it row-wise using `byrow=TRUE`
+    - Print the matrix
+
+    CREATE a 3 × 3 matrix
+    - Use `matrix()` function with `byrow=TRUE`
+    - Assign custom row and column names
+    - Print the labeled matrix
+
+END
