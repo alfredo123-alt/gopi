@@ -1,0 +1,46 @@
+# Generate numbers from 1 to 100
+numbers <- 1:1000
+
+# Function to categorize numbers
+categorize_number <- function(n) {
+  if (n %% 3 == 0 & n %% 5 == 0) {
+    return("FizzBuzz")
+  } else if (n %% 3 == 0) {
+    return("Fizz")
+  } else if (n %% 5 == 0) {
+    return("Buzz")
+  } else {
+    return(n)
+  }
+}
+
+# Apply function to all numbers and store results
+categorized_numbers <- sapply(numbers, categorize_number)
+
+# Print results
+print(categorized_numbers)
+ or
+categorized_numbers <- ifelse(numbers %% 3 == 0 & numbers %% 5 == 0, "FizzBuzz",
+                       ifelse(numbers %% 3 == 0, "Fizz",
+                       ifelse(numbers %% 5 == 0, "Buzz", numbers)))
+
+
+START
+
+    CREATE a sequence of numbers from 1 to 100
+
+    DEFINE function categorize_number(n):
+        IF n is divisible by 3 AND 5:
+            RETURN "FizzBuzz"
+        ELSE IF n is divisible by 3:
+            RETURN "Fizz"
+        ELSE IF n is divisible by 5:
+            RETURN "Buzz"
+        ELSE:
+            RETURN n
+
+    APPLY categorize_number function to each number in sequence
+
+    PRINT the categorized list
+
+END
