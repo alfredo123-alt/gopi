@@ -1,0 +1,49 @@
+# Function to interleave multiple arrays
+interleave_arrays <- function(...) {
+  # Store all arrays in a list
+  array_list <- list(...)
+  
+  # Get the minimum row count to avoid out-of-bound errors
+  min_rows <- min(sapply(array_list, nrow))
+  
+  # Interleave rows
+  interleaved_matrix <- do.call(rbind, lapply(1:min_rows, function(i) {
+    do.call(rbind, lapply(array_list, function(arr) arr[i, , drop = FALSE]))
+  }))
+  
+  return(interleaved_matrix)
+}
+
+# Example: Creating three sample arrays with the same number of rows
+array1 <- matrix(1:6, nrow = 3, byrow = TRUE)
+array2 <- matrix(11:16, nrow = 3, byrow = TRUE)
+array3 <- matrix(21:26, nrow = 3, byrow = TRUE)
+
+# Print original arrays
+cat("Array 1:\n"); print(array1)
+cat("Array 2:\n"); print(array2)
+cat("Array 3:\n"); print(array3)
+
+# Interleave and print the final matrix
+result <- interleave_arrays(array1, array2, array3)
+cat("\nInterleaved Array:\n")
+print(result)
+
+
+
+  START
+
+    FUNCTION interleave_arrays(...)
+        STORE input arrays in a list
+        FIND minimum row count across arrays
+        CREATE an empty matrix to store interleaved rows
+        FOR each row index (1 to min_rows)
+            EXTRACT corresponding rows from each array
+            APPEND them in order
+        RETURN interleaved matrix
+
+    CREATE sample arrays (array1, array2, array3)
+    CALL interleave_arrays() with sample arrays
+    PRINT original arrays and final interleaved array
+
+END
