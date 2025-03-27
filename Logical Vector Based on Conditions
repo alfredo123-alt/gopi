@@ -1,0 +1,29 @@
+# Create a numeric vector
+num_vector <- c(10, 15, 20, 25, 30, 35, 40, 45, 50)
+
+# Logical conditions:
+is_even <- num_vector %% 2 == 0  # Check for even numbers
+greater_than_20 <- num_vector > 20  # Check if greater than 20
+between_15_and_40 <- num_vector >= 15 & num_vector <= 40  # AND condition
+
+# Applying logical operations
+filtered_values <- num_vector[is_even | greater_than_20]  # OR condition
+negation_example <- num_vector[!between_15_and_40]  # NOT condition
+
+# Print results
+print("Even numbers:")
+print(num_vector[is_even])
+
+print("Numbers greater than 20:")
+print(num_vector[greater_than_20])
+
+print("Numbers between 15 and 40:")
+print(num_vector[between_15_and_40])
+
+print("Values satisfying OR condition (Even or >20):")
+print(filtered_values)
+
+print("Numbers NOT between 15 and 40:")
+print(negation_example)
+
+
