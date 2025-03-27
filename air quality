@@ -27,3 +27,58 @@ ggplot(airquality_long, aes(x = Day, y = Value, color = Measurement)) +
   geom_line() +
   facet_wrap(~Measurement, scales = "free_y") +
   theme_minimal()
+
+
+Summary Statistics & Insights
+sql
+Copy
+Edit
+START
+
+    LOAD the 'airquality' dataset
+
+    DISPLAY first few rows of the dataset
+
+    COMPUTE summary statistics:
+        - Minimum, Maximum
+        - Mean, Median
+        - Standard Deviation
+        - Count of Missing Values (NAs)
+
+    IDENTIFY:
+        - Trends in Temperature, Ozone, Wind, Solar Radiation
+        - Outliers in Ozone or Solar Radiation
+        - Relationship between Temperature and Ozone levels
+
+    ANALYZE potential environmental & health effects:
+        - High ozone levels on hot days → Breathing issues
+        - Low wind speed → Air pollution retention
+        - High Solar Radiation → Climate impact
+
+END
+
+Transforming Dataset to Long Format using melt()
+sql
+Copy
+Edit
+START
+
+    LOAD the 'reshape2' library
+
+    TRANSFORM the 'airquality' dataset into long format:
+        - ID variables: Month, Day
+        - Convert remaining columns into key-value pairs (Measurement, Value)
+
+    DISPLAY first few rows of the transformed dataset
+
+    DISCUSS advantages of long-format data:
+        - Better visualization (supports ggplot2)
+        - Simplifies analysis across multiple variables
+        - Enables faceted plots and comparisons
+
+    OPTIONAL: Create a visualization
+        - Use 'ggplot2'
+        - Plot trends of measurements over time
+        - Use facet_wrap() for separate graphs per variable
+
+END
