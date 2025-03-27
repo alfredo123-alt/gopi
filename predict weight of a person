@@ -1,0 +1,45 @@
+# Define height and weight vectors
+height <- c(151, 174, 138, 186, 128, 136, 179, 163, 152, 131)
+weight <- c(63, 81, 56, 91, 47, 57, 76, 72, 62, 48)
+
+# Create linear regression model
+model <- lm(weight ~ height)
+
+# Print summary of the model
+summary(model)
+
+# Predict weight for a person with height 170 cm
+new_height <- data.frame(height = 170)
+predicted_weight <- predict(model, new_height)
+cat("Predicted weight for height 170 cm:", predicted_weight, "\n")
+
+# Visualizing the regression model
+plot(height, weight, main = "Height vs Weight Regression",
+     xlab = "Height (cm)", ylab = "Weight (kg)", pch = 16, col = "blue")
+
+# Add regression line
+abline(model, col = "red", lwd = 2)
+
+# Add the predicted point
+points(170, predicted_weight, col = "green", pch = 19, cex = 1.5)
+text(170, predicted_weight, labels = round(predicted_weight, 2), pos = 3, col = "green")
+
+
+
+START
+    DEFINE height vector
+    DEFINE weight vector
+
+    CREATE linear regression model (lm function)
+
+    DISPLAY model summary
+
+    INPUT new height (170)
+    PREDICT weight using model
+
+    DISPLAY predicted weight
+
+    PLOT scatter plot of height vs weight
+    ADD regression line
+    MARK predicted weight on the plot
+END
