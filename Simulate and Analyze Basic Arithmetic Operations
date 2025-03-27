@@ -1,0 +1,74 @@
+# Define test values
+a <- 10
+b <- 3
+
+# Perform arithmetic operations
+addition <- a + b
+subtraction <- a - b
+multiplication <- a * b
+division <- a / b
+exponentiation <- a^b
+modulo <- a %% b
+integer_division <- a %/% b
+
+# Print results
+cat("Addition:", addition, "\n")
+cat("Subtraction:", subtraction, "\n")
+cat("Multiplication:", multiplication, "\n")
+cat("Division:", division, "\n")
+cat("Exponentiation:", exponentiation, "\n")
+cat("Modulo:", modulo, "\n")
+cat("Integer Division:", integer_division, "\n")
+
+# Edge Cases Analysis
+zero_division <- 10 / 0  # Should return Inf
+negative_division <- -10 / 0  # Should return -Inf
+nan_result <- 0 / 0  # Should return NaN
+
+cat("\nEdge Cases:\n")
+cat("10 / 0:", zero_division, "\n")
+cat("-10 / 0:", negative_division, "\n")
+cat("0 / 0:", nan_result, "\n")
+
+# Floating-point precision test
+precision_test <- 0.1 + 0.2 - 0.3  # Expected to be 0 but might not be due to floating-point precision
+cat("\nPrecision Test (0.1 + 0.2 - 0.3):", precision_test, "\n")
+
+# Efficiency Test with Large Numbers
+large_num1 <- 1e10
+large_num2 <- 1e-10
+large_sum <- large_num1 + large_num2  # Precision loss may occur
+
+cat("\nLarge Number Calculation (1e10 + 1e-10):", large_sum, "\n")
+
+
+START
+
+    DEFINE two numbers (a, b)
+
+    PERFORM basic arithmetic operations:
+        - Addition
+        - Subtraction
+        - Multiplication
+        - Division
+        - Exponentiation
+        - Modulo
+        - Integer Division
+
+    PRINT the results
+
+    CHECK edge cases:
+        - Division by zero (10 / 0)
+        - Negative division by zero (-10 / 0)
+        - Undefined operation (0 / 0)
+
+    TEST floating-point precision:
+        - Compute (0.1 + 0.2 - 0.3)
+        - PRINT result
+
+    ANALYZE efficiency with large numbers:
+        - Perform (1e10 + 1e-10)
+        - PRINT result
+
+END
+
