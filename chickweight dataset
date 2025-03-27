@@ -1,0 +1,62 @@
+# Load dataset
+data(ChickWeight)
+
+# (i) Order data by "weight" in ascending order, grouped by "Diet"
+ordered_data <- ChickWeight[order(ChickWeight$Diet, ChickWeight$weight), ]
+
+# Extract last 6 records from ordered data
+last_6_records <- tail(ordered_data, 6)
+
+cat("Last 6 records from ordered data:\n")
+print(last_6_records)
+
+# Load required library for melting and casting
+library(reshape2)
+
+# (ii.a) Perform melting based on "Chick", "Time", and "Diet"
+melted_data <- melt(ChickWeight, id.vars = c("Chick", "Time", "Diet"))
+
+cat("\nMelted Data:\n")
+print(head(melted_data))  # Show first few rows
+
+# (ii.b) Cast function to display mean weight grouped by Diet
+mean_weight_by_diet <- dcast(melted_data, Diet ~ variable, mean, subset = .(variable == "weight"))
+
+cat("\nMean Weight by Diet:\n")
+print(mean_weight_by_diet)
+
+# (ii.c) Cast function to display mode of weight grouped by Diet
+mode_function <- function(x) {
+  uniq_vals <- unique(x)
+  uniq_vals[which.max(tabulate(match(x, uniq_vals)))]  # Find most frequent value
+}
+
+mode_weight_by_diet <- dcast(melted_data, Diet ~ variable, mode_function, subset = .(variable == "weight"))
+
+cat("\nMode Weight by Diet:\n")
+print(mode_weight_by_diet)
+
+
+
+START
+
+    LOAD ChickWeight dataset
+    
+    (i) ORDER dataset by "weight" in ascending order, grouped by "Diet"
+        - Extract last 6 records from ordered data
+        - PRINT last 6 records
+
+    LOAD "reshape2" library
+
+    (ii.a) MELT data using "Chick", "Time", and "Diet" as ID variables
+        - PRINT first few rows of melted data
+
+    (ii.b) CAST melted data to compute mean weight grouped by Diet
+        - PRINT mean weight by Diet
+
+    (ii.c) DEFINE mode function
+        - APPLY mode function to weight grouped by Diet using `dcast()`
+        - PRINT mode weight by Diet
+
+END
+
