@@ -1,0 +1,38 @@
+# Step 1: Generate a random sample from LETTERS
+set.seed(123)  # Ensures reproducibility
+random_sample <- sample(LETTERS, 20, replace = TRUE)  # Sample of 20 letters
+
+# Step 2: Convert the sample to a Factor
+factor_sample <- factor(random_sample)
+
+# Step 3: Define levels to extract dynamically (example: extracting vowels)
+subset_levels <- c("F", "U", "C", "K", "U")  # User-defined subset
+
+# Step 4: Extract subset matching the specified levels
+filtered_subset <- factor(factor_sample[factor_sample %in% subset_levels])
+
+# Step 5: Print Results
+print(factor_sample)       # Original Factor
+print(filtered_subset)     # Extracted Subset
+levels(filtered_subset)    # Show available levels in the subset
+
+
+START
+
+    SET seed value (optional for reproducibility)
+
+    GENERATE a random sample from LETTERS with N elements
+
+    CONVERT the sample to a Factor
+
+    DEFINE the subset of levels to extract (e.g., vowels or custom levels)
+
+    FILTER the Factor to include only the specified levels
+
+    PRINT the original Factor
+
+    PRINT the filtered subset
+
+    DISPLAY the levels in the subset
+
+END
