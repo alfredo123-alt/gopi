@@ -1,0 +1,57 @@
+# Define dimensions
+rows <- 3
+cols <- 4
+tables <- 2  # Number of 2D matrices (depth)
+
+# Create a 3D array with random values
+my_array <- array(data = 1:24, dim = c(rows, cols, tables))
+
+# Print the entire array
+print("3D Array:")
+print(my_array)
+
+# Accessing elements
+element_1_2_1 <- my_array[1, 2, 1]  # First row, second column, first table
+cat("\nElement at (1,2,1):", element_1_2_1, "\n")
+
+# Extracting a 2D matrix (e.g., first table)
+matrix_1 <- my_array[,,1]
+cat("\nFirst 2D Matrix (Table 1):\n")
+print(matrix_1)
+
+# Analyze the structure
+cat("\nStructure of the Array:\n")
+str(my_array)
+
+# Dimension names for better readability
+dimnames(my_array) <- list(
+  c("Row1", "Row2", "Row3"), 
+  c("Col1", "Col2", "Col3", "Col4"), 
+  c("Table1", "Table2")
+)
+
+# Print array with names
+cat("\nArray with Dimension Names:\n")
+print(my_array)
+
+
+
+START
+
+    DEFINE number of rows, columns, and tables
+    
+    CREATE a 3D array using `array()` function
+    
+    PRINT the entire array
+    
+    ACCESS specific elements using indexing `[row, column, table]`
+    
+    EXTRACT a 2D matrix (slice of a table)
+    
+    ANALYZE the structure of the array using `str()`
+    
+    ASSIGN meaningful names to rows, columns, and tables
+    
+    PRINT the updated array with named dimensions
+
+END
