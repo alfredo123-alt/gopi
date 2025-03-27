@@ -1,0 +1,26 @@
+# Generate a vector of 10 random integers between -50 and 50
+set.seed(123)# Setting seed for reproducibility
+random_numbers <- sample(-50:50, 8, replace = TRUE)
+
+# Print the generated numbers
+print(random_numbers)
+
+# Analyze the distribution
+summary(random_numbers)  # Summary statistics
+barplot(random_numbers, main="Barplot of Random Numbers", col="skyblue", names.arg=1:8)
+
+
+
+START
+    SET seed value (optional for reproducibility)
+
+    GENERATE 10 random integers between -50 and +50
+
+    PRINT the generated numbers
+
+    COMPUTE summary statistics:
+        - Minimum, Maximum
+        - Mean, Median
+        - Quartiles
+
+    DISPLAY histogram of the generated numbers
