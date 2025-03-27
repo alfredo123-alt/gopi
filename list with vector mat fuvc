@@ -1,0 +1,57 @@
+# Create a vector
+num_vector <- c(10, 20, 30, 40, 50)
+
+# Create a matrix (2x3)
+num_matrix <- matrix(1:6, nrow=2, ncol=3)
+
+# Create a custom function
+custom_function <- function(x) {
+  return(x^2)  # Squares the input
+}
+
+# Create a list containing the vector, matrix, and function
+my_list <- list(
+  Vector = num_vector,
+  Matrix = num_matrix,
+  Function = custom_function
+)
+
+# Print the list
+print("Complete List:")
+print(my_list)
+
+# Accessing elements in the list
+cat("\nAccessing Vector:\n")
+print(my_list$Vector)  # Using $ operator
+
+cat("\nAccessing Matrix:\n")
+print(my_list[["Matrix"]])  # Using double brackets [[ ]]
+
+cat("\nApplying Function to a Number (5^2):\n")
+print(my_list$Function(5))  # Calling the function inside the list
+
+# Analyzing list structure
+cat("\nList Structure:\n")
+str(my_list)
+
+
+START
+
+    CREATE a numeric vector
+    
+    CREATE a numeric matrix
+    
+    DEFINE a custom function
+    
+    COMBINE all elements into a list
+    
+    PRINT the entire list
+    
+    ACCESS and print individual elements:
+        - Vector
+        - Matrix
+        - Function (apply it to a sample value)
+    
+    ANALYZE the list structure using `str()`
+
+END
