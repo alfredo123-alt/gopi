@@ -1,0 +1,29 @@
+# Load dataset
+data("airquality")
+
+# View first few rows
+head(airquality)
+
+# Summary statistics
+summary(airquality)
+
+
+# Load required package
+library(reshape2)
+
+# Convert dataset to long format
+airquality_long <- melt(airquality, id.vars = c("Month", "Day"), 
+                        variable.name = "Measurement", value.name = "Value")
+
+# View transformed dataset
+head(airquality_long)
+
+Example Usage in ggplot2
+
+library(ggplot2)
+
+# Plot trends over time
+ggplot(airquality_long, aes(x = Day, y = Value, color = Measurement)) +
+  geom_line() +
+  facet_wrap(~Measurement, scales = "free_y") +
+  theme_minimal()
