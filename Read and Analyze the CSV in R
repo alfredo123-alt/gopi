@@ -1,0 +1,21 @@
+# Read the CSV file (Modify path accordingly)
+data <- read.csv("C:/Users/YourName/Documents/input.csv", header=TRUE, stringsAsFactors=FALSE)
+
+# Print first few rows
+print(data)
+
+max_salary <- max(data$Salary)
+cat("Maximum Salary:", max_salary, "\n")
+
+max_salary_person <- data[data$Salary == max_salary, ]
+print(max_salary_person)
+
+it_employees <- subset(data, Department == "IT")
+print(it_employees)
+
+high_salary_it <- subset(data, Department == "IT" & Salary > 600)
+print(high_salary_it)
+
+recent_joins <- subset(data, JoiningYear >= 2014)
+print(recent_joins)
+
