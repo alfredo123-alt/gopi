@@ -1,0 +1,75 @@
+Load Required Libraries & Titanic Dataset
+r
+Copy
+Edit
+# Load Titanic dataset
+data("Titanic")
+
+# Convert Titanic dataset to a data frame
+titanic_df <- as.data.frame(Titanic)
+
+# Load ggplot2 for visualization
+library(ggplot2)
+
+
+(a) Bar Chart: Survival Based on Passenger Class
+r
+Copy
+Edit
+# Create a bar chart for "Survived" grouped by "Class"
+ggplot(titanic_df, aes(x = Class, y = Freq, fill = Survived)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Survival Based on Passenger Class", x = "Passenger Class", y = "Count") +
+  theme_minimal()
+
+
+ (b) Modify the Bar Chart Based on Gender
+r
+Copy
+Edit
+# Bar chart for "Survived" grouped by "Class" and "Sex"
+ggplot(titanic_df, aes(x = Class, y = Freq, fill = Survived)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  facet_wrap(~ Sex) +  # Split the chart by gender
+  labs(title = "Survival Based on Passenger Class & Gender", x = "Passenger Class", y = "Count") +
+  theme_minimal()
+
+
+ (c) Histogram: Age Distribution
+r
+Copy
+Edit
+# Load another Titanic dataset with Age (from datasets package)
+titanic_data <- datasets::Titanic
+
+# Convert to data frame
+titanic_df2 <- as.data.frame(titanic_data)
+
+# Since Age is not in Titanic dataset, we use an alternative Titanic dataset
+library(datasets)
+titanic_full <- read.csv("https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv")
+
+# Histogram for "Age"
+ggplot(titanic_full, aes(x = Age)) +
+  geom_histogram(binwidth = 5, fill = "skyblue", color = "black") +
+  labs(title = "Distribution of Age", x = "Age", y = "Count") +
+  theme_minimal()
+
+
+
+START
+
+    LOAD Titanic dataset
+    CONVERT Titanic dataset into a DataFrame
+    
+    (a) DRAW bar chart for "Survived" grouped by "Class"
+        - Use ggplot2 with geom_bar()
+
+    (b) MODIFY bar chart to group by "Class" and split by "Sex"
+        - Use facet_wrap(~ Sex) to separate by gender
+
+    (c) DRAW histogram to show distribution of "Age"
+        - Use ggplot2 with geom_histogram()
+        - Set bin width to 5 for better clarity
+
+END
